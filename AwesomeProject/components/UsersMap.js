@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
 
 const usersMap = props => {
     let userLocationMarker = null;
+    
     if(props.userLocation) {
         userLocationMarker = <MapView.Marker coordinate={props.userLocation}/>;
     }
+
+    const usersMarkers = props.usersPlaces.map(userPlace => <MapView.Marker coordinate={userPlace} key={userPlace.id}/>);
+    console.log(usersMarkers);
     return (
         <View style={styles.mapContainer}>
             <MapView
@@ -27,6 +31,7 @@ const usersMap = props => {
             style={styles.map}
             region={props.userLocation}>
                 {userLocationMarker}
+                {usersMarkers}
             </MapView>
       </View>
     );

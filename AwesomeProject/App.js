@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button} from 'react-native';
 import FetchLocation from './components/FetchLocation';
 import UsersMap from './components/UsersMap';
 import Geolocation from 'react-native-geolocation-service';
@@ -23,7 +23,8 @@ type Props = {};
 export default class App extends Component<Props> {
 
   state = {
-    userLocation:null
+    userLocation: null,
+    usersPlaces: []
   }
 
   getUserLocationHandler = () => {
@@ -33,10 +34,19 @@ export default class App extends Component<Props> {
           userLocation: {
             latitude: position.coords.latitude,
             longitude:position.coords.longitude,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121
+            latitudeDelta: 0.0622,
+            longitudeDelta: 0.0421
           }
         });
+        fetch('https://react-native-uni-1553542737099.firebaseio.com/places.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            latitude: position.coords.latitude,
+            longitude:position.coords.longitude
+          })
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
         console.log(position);
       },
       (error) => {
@@ -47,11 +57,34 @@ export default class App extends Component<Props> {
     );
   }
 
+  getUserPlacesHandler = () => {
+    fetch('https://react-native-uni-1553542737099.firebaseio.com/places.json')
+    .then(res => res.json())
+    .then(parsedResponse => {
+      const placesArray = [];
+      for(const key in parsedResponse) {
+        placesArray.push({
+          latitude: parsedResponse[key].latitude,
+          longitude: parsedResponse[key].longitude,
+          id: key
+        });
+        console.log(key);
+      }
+      this.setState({
+        usersPlaces: placesArray
+      })
+    })
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <View style={{marginBottom:20, marginTop:35}}>
+          <Button title="Get User Places" onPress={this.getUserPlacesHandler}/>
+        </View>  
         <FetchLocation onGetLocation={this.getUserLocationHandler} />
-        <UsersMap userLocation={this.state.userLocation} />
+        <UsersMap userLocation={this.state.userLocation} usersPlaces={this.state.usersPlaces}/>
       </View>
     );
   }
