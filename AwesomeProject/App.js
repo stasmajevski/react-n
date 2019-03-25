@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import FetchLocation from './components/FetchLocation';
+import UsersMap from './components/UsersMap';
 import Geolocation from 'react-native-geolocation-service';
 
 const instructions = Platform.select({
@@ -21,10 +22,22 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
 
+  state = {
+    userLocation:null
+  }
+
   getUserLocationHandler = () => {
     Geolocation.getCurrentPosition(
       (position) => {
-          console.log(position);
+        this.setState({
+          userLocation: {
+            latitude: position.coords.latitude,
+            longitude:position.coords.longitude,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121
+          }
+        });
+        console.log(position);
       },
       (error) => {
           // See error code charts below.
@@ -38,6 +51,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <FetchLocation onGetLocation={this.getUserLocationHandler} />
+        <UsersMap userLocation={this.state.userLocation} />
       </View>
     );
   }
