@@ -10,7 +10,8 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.1",
-    "react-native-geolocation-service": "^2.0.0"
+    "react-native-geolocation-service": "^2.0.0",
+    "react-native-maps": "^0.23.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.0",
