@@ -5,7 +5,7 @@ University Project
 
 https://facebook.github.io/react-native/docs/getting-started
 
-![alt text](https://imgur.com/a/UM7WPge)
+![alt text](https://imgur.com/swDGSUk)
 
 7. Git projektis on README.md, kus asub arvamus juhendist (min 2 lõiku).
 8. Git projektis on README.md, kus kirjeldatakse vajalikest muutustest seoses SDK versiooni muutustega.
