@@ -7,6 +7,7 @@ const fetchLocation = props => {
         title="Get Location"
         onPress={props.onGetLocation}
         color="#841584"
+        style={{marginBottom:20}}
         accessibilityLabel="Learn more about this purple button"
         />
     );

@@ -57,6 +57,17 @@ export default class App extends Component<Props> {
     );
   }
 
+  deleteUserLocationHandler = () => {
+    fetch('https://react-native-uni-1553542737099.firebaseio.com/places.json', {
+      method: 'DELETE',
+    })
+    .then(() => {
+      this.setState({
+        userLocation: null
+      })
+    })
+  };
+    
   getUserPlacesHandler = () => {
     fetch('https://react-native-uni-1553542737099.firebaseio.com/places.json')
     .then(res => res.json())
@@ -80,11 +91,14 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{marginBottom:20, marginTop:35}}>
+        <View style={{marginBottom:20, marginTop:70}}>
           <Button title="Get User Places" onPress={this.getUserPlacesHandler}/>
         </View>  
         <FetchLocation onGetLocation={this.getUserLocationHandler} />
         <UsersMap userLocation={this.state.userLocation} usersPlaces={this.state.usersPlaces}/>
+        <View style={{marginTop:10}}>
+          <Button color="red" title="Delete User Places" onPress={this.deleteUserLocationHandler}/>
+        </View>
       </View>
     );
   }
