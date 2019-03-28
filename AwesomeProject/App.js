@@ -91,12 +91,12 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{marginBottom:20, marginTop:70}}>
-          <Button title="Get User Places" onPress={this.getUserPlacesHandler}/>
+        <View style={{width:165}}>
+          <Button  title="Get User Places" onPress={this.getUserPlacesHandler}/>
         </View>  
         <FetchLocation onGetLocation={this.getUserLocationHandler} />
         <UsersMap userLocation={this.state.userLocation} usersPlaces={this.state.usersPlaces}/>
-        <View style={{marginTop:10}}>
+        <View style={{marginTop:5, width:165}}>
           <Button color="red" title="Delete User Places" onPress={this.deleteUserLocationHandler}/>
         </View>
       </View>
@@ -107,10 +107,10 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
+
   welcome: {
     fontSize: 20,
     textAlign: 'center',

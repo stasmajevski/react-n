@@ -1,15 +1,16 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 
 const fetchLocation = props => {
     return (
-        <Button
-        title="Get Location"
-        onPress={props.onGetLocation}
-        color="#841584"
-        style={{marginBottom:20}}
-        accessibilityLabel="Learn more about this purple button"
-        />
+        <View style={{marginTop:5, width:165}}>
+            <Button
+            title="Get Location"
+            onPress={props.onGetLocation}
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+            />
+        </View>    
     );
 };
 
