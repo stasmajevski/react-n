@@ -24,6 +24,9 @@ Praegu, et luua tuleb kasutada:
 ```
 react-native init PROJECT NAME
 ```
+
+Realtime Database: Firebase - https://firebase.google.com/
+
 # Project Screenshot
 <p align="left">
   <img width="275" height="500" src="https://i.imgur.com/a9JMEwi.jpg">
@@ -31,3 +34,5 @@ react-native init PROJECT NAME
 
 Et integreerida Google Maps kasutasin: ```react-native-maps```
 Link: https://github.com/react-native-community/react-native-maps
+
+Lisatud funktsionaalsus: Kasutajal on võimalik kustutada kõik markerid
