@@ -29,10 +29,14 @@ Realtime Database: Firebase - https://firebase.google.com/
 
 # Project Screenshot
 <p align="left">
-  <img width="275" height="500" src="https://i.imgur.com/a9JMEwi.jpg">
+  <img width="275" height="500" src="https://i.imgur.com/gup3ioh.jpg">
 </p>
 
 Et integreerida Google Maps kasutasin: ```react-native-maps```
 Link: https://github.com/react-native-community/react-native-maps
 
-Lisatud funktsionaalsus: Kasutajal on võimalik kustutada kõik markerid
+Lisatud funktsionaalsus:
+  </br>
+  Kasutajal on võimalik kustutada kõik markerid
+  </br>
+  Muudatud kaardi suurus ja nuppude positsioonid
