@@ -2,7 +2,7 @@
 
 University Project - Get Data from Firebase and display it on map using Google Maps API
 
-# Gettings Started
+# Getting Started
 
 https://facebook.github.io/react-native/docs/getting-started
 
